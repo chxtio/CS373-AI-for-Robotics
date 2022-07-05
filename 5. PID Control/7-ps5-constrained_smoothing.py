@@ -38,7 +38,8 @@ def smooth(path, fix, weight_data = 0.0, weight_smooth = 0.1, tolerance = 0.0000
                     # newpath[i][j] += weight_data * (path[i][j] - newpath[i][j]) + \
                     #                 weight_smooth * (newpath[(i+1) % len(path)][j] + newpath[(i-1)  % len(path)][j] - 2 * newpath[i][j])
                                     
-                    newpath[i][j] += weight_smooth * (newpath[(i-1)%len(path)][j] + newpath[(i+1)%len(path)][j] - 2.0 * newpath[i][j]) + \
+                    newpath[i][j] += weight_data * (path[i][j] - newpath[i][j]) + \
+                                    weight_smooth * (newpath[(i-1)%len(path)][j] + newpath[(i+1)%len(path)][j] - 2.0 * newpath[i][j]) + \
                                     (weight_smooth / 2.0) * (2.0 * newpath[(i-1)%len(path)][j] - newpath[(i-2)%len(path)][j] - newpath[i][j]) + \
                                     (weight_smooth / 2.0) * (2.0 * newpath[(i+1)%len(path)][j] - newpath[(i+2)%len(path)][j] - newpath[i][j])
                  
