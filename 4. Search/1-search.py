@@ -38,7 +38,9 @@ def search(grid,init,goal,cost):
     # ----------------------------------------
     print('\n')
     print('{} x {} grid: '.format(len(grid), len(grid[0])))
-    print(grid)
+    for i in range(len(grid)):
+        print(grid[i])
+        
     closed_list = [[0 for col in range(len(grid[0]))] for row in range(len(grid))]
     g, x, y = 0, init[0], init[1]
     closed_list[x][y] = 1
@@ -87,122 +89,12 @@ def search(grid,init,goal,cost):
     return path
 
 
-# 2 x 2 grid: 
-# [[0, 1], [0, 0]]
-# closed_list:  [[1, 0], [0, 0]]
-# open_list:  [[0, 0, 0]]
-# sorted open list:  [[0, 0, 0]]
-# next_node:  [0, 0, 0]
-# open_list:  [[1, 1, 0]] 
-
-# sorted open list:  [[1, 1, 0]]
-# next_node:  [1, 1, 0]
-# open_list:  [[2, 1, 1]] 
-
-# sorted open list:  [[2, 1, 1]]
-# next_node:  [2, 1, 1]
-# final path:  [2, 1, 1]
-
-
 # 5 x 6 grid: 
-# [[0, 0, 1, 0, 0, 0], [0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 1, 0], [0, 0, 1, 1, 1, 0], [0, 0, 0, 0, 1, 0]]
-# closed_list:  [[1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0]]
-# open_list:  [[0, 0, 0]]
-# sorted open list:  [[0, 0, 0]]
-# next_node:  [0, 0, 0]
-# open_list:  [[1, 1, 0], [1, 0, 1]] 
-
-# sorted open list:  [[1, 1, 0], [1, 0, 1]]
-# next_node:  [1, 0, 1]
-# open_list:  [[1, 1, 0], [2, 1, 1]] 
-
-# sorted open list:  [[2, 1, 1], [1, 1, 0]]
-# next_node:  [1, 1, 0]
-# open_list:  [[2, 1, 1], [2, 2, 0]] 
-
-# sorted open list:  [[2, 2, 0], [2, 1, 1]]
-# next_node:  [2, 1, 1]
-# open_list:  [[2, 2, 0], [3, 2, 1]] 
-
-# sorted open list:  [[3, 2, 1], [2, 2, 0]]
-# next_node:  [2, 2, 0]
-# open_list:  [[3, 2, 1], [3, 3, 0]] 
-
-# sorted open list:  [[3, 3, 0], [3, 2, 1]]
-# next_node:  [3, 2, 1]
-# open_list:  [[3, 3, 0], [4, 3, 1], [4, 2, 2]] 
-
-# sorted open list:  [[4, 3, 1], [4, 2, 2], [3, 3, 0]]
-# next_node:  [3, 3, 0]
-# open_list:  [[4, 3, 1], [4, 2, 2], [4, 4, 0]] 
-
-# sorted open list:  [[4, 4, 0], [4, 3, 1], [4, 2, 2]]
-# next_node:  [4, 2, 2]
-# open_list:  [[4, 4, 0], [4, 3, 1], [5, 2, 3]] 
-
-# sorted open list:  [[5, 2, 3], [4, 4, 0], [4, 3, 1]]
-# next_node:  [4, 3, 1]
-# open_list:  [[5, 2, 3], [4, 4, 0], [5, 4, 1]] 
-
-# sorted open list:  [[5, 4, 1], [5, 2, 3], [4, 4, 0]]
-# next_node:  [4, 4, 0]
-# open_list:  [[5, 4, 1], [5, 2, 3]] 
-
-# sorted open list:  [[5, 4, 1], [5, 2, 3]]
-# next_node:  [5, 2, 3]
-# open_list:  [[5, 4, 1], [6, 1, 3]] 
-
-# sorted open list:  [[6, 1, 3], [5, 4, 1]]
-# next_node:  [5, 4, 1]
-# open_list:  [[6, 1, 3], [6, 4, 2]] 
-
-# sorted open list:  [[6, 4, 2], [6, 1, 3]]
-# next_node:  [6, 1, 3]
-# open_list:  [[6, 4, 2], [7, 0, 3], [7, 1, 4]] 
-
-# sorted open list:  [[7, 1, 4], [7, 0, 3], [6, 4, 2]]
-# next_node:  [6, 4, 2]
-# open_list:  [[7, 1, 4], [7, 0, 3], [7, 4, 3]] 
-
-# sorted open list:  [[7, 4, 3], [7, 1, 4], [7, 0, 3]]
-# next_node:  [7, 0, 3]
-# open_list:  [[7, 4, 3], [7, 1, 4], [8, 0, 4]] 
-
-# sorted open list:  [[8, 0, 4], [7, 4, 3], [7, 1, 4]]
-# next_node:  [7, 1, 4]
-# open_list:  [[8, 0, 4], [7, 4, 3], [8, 1, 5]] 
-
-# sorted open list:  [[8, 1, 5], [8, 0, 4], [7, 4, 3]]
-# next_node:  [7, 4, 3]
-# open_list:  [[8, 1, 5], [8, 0, 4]] 
-
-# sorted open list:  [[8, 1, 5], [8, 0, 4]]
-# next_node:  [8, 0, 4]
-# open_list:  [[8, 1, 5], [9, 0, 5]] 
-
-# sorted open list:  [[9, 0, 5], [8, 1, 5]]
-# next_node:  [8, 1, 5]
-# open_list:  [[9, 0, 5], [9, 2, 5]] 
-
-# sorted open list:  [[9, 2, 5], [9, 0, 5]]
-# next_node:  [9, 0, 5]
-# open_list:  [[9, 2, 5]] 
-
-# sorted open list:  [[9, 2, 5]]
-# next_node:  [9, 2, 5]
-# open_list:  [[10, 3, 5]] 
-
-# sorted open list:  [[10, 3, 5]]
-# next_node:  [10, 3, 5]
-# open_list:  [[11, 4, 5]] 
-
-# sorted open list:  [[11, 4, 5]]
-# next_node:  [11, 4, 5]
-# final path:  [11, 4, 5]
-
-
-# 5 x 6 grid: 
-# [[0, 1, 0, 0, 0, 0], [0, 1, 0, 1, 0, 0], [0, 1, 0, 1, 0, 0], [0, 1, 0, 1, 0, 0], [0, 0, 0, 1, 0, 0]]
+# [0, 1, 0, 0, 0, 0]
+# [0, 1, 0, 1, 0, 0]
+# [0, 1, 0, 1, 0, 0]
+# [0, 1, 0, 1, 0, 0]
+# [0, 0, 0, 1, 0, 0]
 # closed_list:  [[1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0]]
 # open_list:  [[0, 0, 0]]
 # sorted open list:  [[0, 0, 0]]
@@ -295,7 +187,11 @@ def search(grid,init,goal,cost):
 
 
 # 5 x 7 grid: 
-# [[0, 1, 0, 1, 0, 0, 0], [0, 1, 0, 1, 0, 0, 0], [0, 1, 0, 1, 0, 0, 0], [0, 1, 0, 1, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0]]
+# [0, 1, 0, 1, 0, 0, 0]
+# [0, 1, 0, 1, 0, 0, 0]
+# [0, 1, 0, 1, 0, 0, 0]
+# [0, 1, 0, 1, 0, 0, 0]
+# [0, 0, 0, 1, 0, 0, 0]
 # closed_list:  [[1, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0]]
 # open_list:  [[0, 0, 0]]
 # sorted open list:  [[0, 0, 0]]
