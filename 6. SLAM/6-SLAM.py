@@ -552,10 +552,11 @@ def slam(data, N, num_landmarks, motion_noise, measurement_noise):
             # update info matrix according to measurment
             for b in range(2):
                 omega.value[n+b][n+b] += 1.0 / measurement_noise
-                omega.value[m+b][m+b] += 1.0 / measurement_noise
                 omega.value[n+b][m+b] += -1.0 / measurement_noise
-                omega.value[m+b][n+b] += -1.0 / measurement_noise
                 xi.value[n+b][0] += -measurement[i][1+b] / measurement_noise
+                
+                omega.value[m+b][m+b] += 1.0 / measurement_noise
+                omega.value[m+b][n+b] += -1.0 / measurement_noise
                 xi.value[m+b][0] += measurement[i][1+b] / measurement_noise
 
         # update info matrix/vector based on the motion
